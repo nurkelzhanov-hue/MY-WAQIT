@@ -1,0 +1,112 @@
+.form-shell {
+  padding: 0 16px;
+}
+
+.newtask {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.newtask-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: calc(16px + env(safe-area-inset-top, 0px)) 0 16px;
+}
+
+.back-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--gold);
+  cursor: pointer;
+}
+
+.newtask-title {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.newtask-fields {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.field-label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.field-error {
+  font-size: 12px;
+  color: #f87171;
+}
+
+.field-row {
+  display: flex;
+  gap: 12px;
+}
+
+.input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 16px;
+  resize: vertical;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.weekday-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  min-width: 44px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  color: var(--text);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.chip.selected {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--gold-dark);
+  font-weight: 700;
+}
+
+.form-footer {
+  position: sticky;
+  bottom: 0;
+  padding: 16px 0 calc(16px + env(safe-area-inset-bottom, 0px));
+  background: linear-gradient(to bottom, transparent, var(--bg) 35%);
+}

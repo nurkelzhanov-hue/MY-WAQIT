@@ -1,4 +1,4 @@
-import type { Strings } from './types'
+﻿import type { Strings } from './types'
 
 export const kaa: Strings = {
   nav: {
@@ -20,7 +20,7 @@ export const kaa: Strings = {
   home: {
     greetingMorning: 'Qayırly tań!',
     greetingDay: 'Qayırly kún!',
-    greetingEvening: 'Qayırly keshe!',
+    greetingEvening: 'Xayrli kesh!',
     today: 'Búgin',
     newTask: 'Jańa reje',
     calendar: 'Kalendar',
@@ -32,6 +32,38 @@ export const kaa: Strings = {
   },
   prayer: {
     title: 'Namaz waqıtları',
+  },
+  newTask: {
+    taskName: 'Reje atı',
+    taskNamePlaceholder: 'Misal: Doktorǵa barıw',
+    description: 'Reje mazmunı',
+    date: 'Sana',
+    time: 'Waqıt',
+    reminder: 'Eskertiw',
+    reminderOptions: {
+      m5: '5 minut aldın',
+      m10: '10 minut aldın',
+      m15: '15 minut aldın',
+      m30: '30 minut aldın',
+      h1: '1 saat aldın',
+      d1: '1 kún aldın',
+      custom: 'Ózi belgilew',
+    },
+    customMinutes: 'Neshe minut aldın',
+    repeat: 'Qaytalanıw',
+    repeatOptions: {
+      none: 'Qaytalanbaydı',
+      daily: 'Hár kúni',
+      weekly: 'Hár hápte',
+      monthly: 'Hár ay',
+      yearly: 'Hár jıl',
+      weekdays: 'Belgilengen kúnlerde',
+    },
+    location: 'Orın',
+    note: 'Qosımsha jazba',
+    save: 'Saqla',
+    titleRequired: 'Reje atın kiritiń',
+    back: 'Artqa',
   },
   months: [
     'Daliw',
