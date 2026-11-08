@@ -48,5 +48,23 @@ export const uz: Strings = {
     'dekabr',
   ],
   weekdays: ['Dushanba', 'Seshanba', 'Chorshanba', 'Payshanba', 'Juma', 'Shanba', 'Yakshanba'],
+  monthsTitle: [
+    'Yanvar',
+    'Fevral',
+    'Mart',
+    'Aprel',
+    'May',
+    'Iyun',
+    'Iyul',
+    'Avgust',
+    'Sentyabr',
+    'Oktyabr',
+    'Noyabr',
+    'Dekabr',
+  ],
+  weekdaysShort: ['Du', 'Se', 'Ch', 'Pa', 'Ju', 'Sh', 'Ya'],
+  calendar: {
+    noTasks: "Bu kunda reja yo'q",
+  },
   demoTasks: ['Shaxsiy uchrashuv', 'Darsga tayyorlanish', 'Sport'],
 }

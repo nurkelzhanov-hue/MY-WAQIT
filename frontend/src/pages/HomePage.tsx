@@ -7,11 +7,8 @@ import { DEFAULT_TIMEZONE } from '../utils/config'
 import ClockCard from '../components/home/ClockCard'
 import QuickActions from '../components/home/QuickActions'
 import TaskCard from '../components/home/TaskCard'
+import { DEMO_REMINDER_MINUTES, DEMO_TIMES } from '../data/demo'
 import './home.css'
-
-// Temporary sample times; real tasks come from the database in a later stage.
-const DEMO_TIMES = ['11:00', '15:00', '18:30']
-const DEMO_REMINDER_MINUTES = 30
 
 export default function HomePage() {
   const { t } = useLang()

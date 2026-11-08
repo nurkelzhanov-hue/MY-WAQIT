@@ -48,5 +48,23 @@ export const kaa: Strings = {
     'Jeddi',
   ],
   weekdays: ['Dúyshembi', 'Siyshembi', 'Sárshembi', 'Báyshembi', 'Juma', 'Senbi', 'Ekshembi'],
+  monthsTitle: [
+    'Daliw',
+    'Hut',
+    'Hamal',
+    "Sa'wir",
+    'Jawza',
+    'Saratan',
+    "Ha'set",
+    "Su'mbile",
+    'Miyzan',
+    'Aqirap',
+    'Qawis',
+    'Jeddi',
+  ],
+  weekdaysShort: ['Dú', 'Si', 'Sár', 'Bé', 'Ju', 'Sen', 'Ek'],
+  calendar: {
+    noTasks: 'Bul kúnde reje joq',
+  },
   demoTasks: ['Jeke ushırasıw', 'Sabaq oqıw', 'Sport'],
 }

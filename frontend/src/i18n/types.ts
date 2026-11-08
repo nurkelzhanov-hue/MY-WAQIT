@@ -32,6 +32,11 @@ export type Strings = {
     title: string
   }
   months: string[]
+  monthsTitle: string[] // month names used as headings
+  weekdaysShort: string[] // Monday first
+  calendar: {
+    noTasks: string
+  }
   weekdays: string[] // Monday first
   demoTasks: string[] // temporary sample data until the database is connected
 }

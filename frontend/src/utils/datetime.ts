@@ -8,10 +8,13 @@ const WEEKDAY_INDEX: Record<string, number> = {
   Sun: 6,
 }
 
-export type ZonedNow = {
+export type Ymd = {
   year: number
   month: number // 1-12
   day: number
+}
+
+export type ZonedNow = Ymd & {
   weekday: number // 0 = Monday ... 6 = Sunday
   hour: number
   minute: number
@@ -43,4 +46,19 @@ export function getZonedNow(timeZone: string, date: Date = new Date()): ZonedNow
 
 export function pad2(n: number): string {
   return String(n).padStart(2, '0')
+}
+
+// Calendar helpers (pure date arithmetic, independent of the viewer's timezone)
+
+export function daysInMonth(year: number, month: number): number {
+  return new Date(Date.UTC(year, month, 0)).getUTCDate()
+}
+
+// 0 = Monday ... 6 = Sunday
+export function weekdayOf(year: number, month: number, day: number): number {
+  return (new Date(Date.UTC(year, month - 1, day)).getUTCDay() + 6) % 7
+}
+
+export function sameDay(a: Ymd, b: Ymd): boolean {
+  return a.year === b.year && a.month === b.month && a.day === b.day
 }
