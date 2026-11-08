@@ -1,0 +1,108 @@
+.screen {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100dvh;
+  padding: 24px 20px calc(24px + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.welcome-top {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.logo-circle {
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  background: var(--card);
+  border: 2px solid var(--gold);
+}
+
+.brand {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--gold);
+}
+
+.tagline {
+  color: var(--text);
+  font-size: 16px;
+  max-width: 260px;
+}
+
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.screen-title {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.lang-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 16px;
+  border-radius: var(--radius);
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.lang-option.selected {
+  border-color: var(--gold);
+  color: var(--text);
+}
+
+.lang-option.selected svg {
+  color: var(--gold);
+}
+
+.lang-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  border: 1px solid var(--card-border);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.lang-name {
+  flex: 1;
+}

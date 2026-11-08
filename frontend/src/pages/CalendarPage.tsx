@@ -1,6 +1,7 @@
 import PagePlaceholder from '../components/PagePlaceholder'
-import { kaa } from '../i18n/kaa'
+import { useLang } from '../hooks/useLang'
 
 export default function CalendarPage() {
-  return <PagePlaceholder title={kaa.nav.calendar} />
+  const { t } = useLang()
+  return <PagePlaceholder title={t.nav.calendar} />
 }

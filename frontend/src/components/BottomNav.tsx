@@ -1,16 +1,18 @@
 import { NavLink } from 'react-router-dom'
 import { Bell, CalendarDays, House, Sparkles, User } from 'lucide-react'
-import { kaa } from '../i18n/kaa'
-
-const items = [
-  { to: '/', label: kaa.nav.home, Icon: House, end: true },
-  { to: '/calendar', label: kaa.nav.calendar, Icon: CalendarDays, end: false },
-  { to: '/ai', label: kaa.nav.ai, Icon: Sparkles, end: false },
-  { to: '/reminders', label: kaa.nav.reminders, Icon: Bell, end: false },
-  { to: '/profile', label: kaa.nav.profile, Icon: User, end: false },
-]
+import { useLang } from '../hooks/useLang'
 
 export default function BottomNav() {
+  const { t } = useLang()
+
+  const items = [
+    { to: '/', label: t.nav.home, Icon: House, end: true },
+    { to: '/calendar', label: t.nav.calendar, Icon: CalendarDays, end: false },
+    { to: '/ai', label: t.nav.ai, Icon: Sparkles, end: false },
+    { to: '/reminders', label: t.nav.reminders, Icon: Bell, end: false },
+    { to: '/profile', label: t.nav.profile, Icon: User, end: false },
+  ]
+
   return (
     <nav className="bottom-nav">
       {items.map(({ to, label, Icon, end }) => (
