@@ -7,6 +7,8 @@ import CalendarPage from './pages/CalendarPage'
 import AiPage from './pages/AiPage'
 import RemindersPage from './pages/RemindersPage'
 import ProfilePage from './pages/ProfilePage'
+import NewTaskPage from './pages/NewTaskPage'
+import PrayerPage from './pages/PrayerPage'
 
 export default function App() {
   return (
@@ -19,6 +21,8 @@ export default function App() {
         <Route path="ai" element={<AiPage />} />
         <Route path="reminders" element={<RemindersPage />} />
         <Route path="profile" element={<ProfilePage />} />
+        <Route path="new-task" element={<NewTaskPage />} />
+        <Route path="prayer" element={<PrayerPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
