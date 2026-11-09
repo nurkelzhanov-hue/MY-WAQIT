@@ -62,3 +62,10 @@ export function weekdayOf(year: number, month: number, day: number): number {
 export function sameDay(a: Ymd, b: Ymd): boolean {
   return a.year === b.year && a.month === b.month && a.day === b.day
 }
+
+// Shift a "HH:MM" time by a number of minutes (wraps around midnight).
+export function shiftTime(time: string, deltaMinutes: number): string {
+  const [h, m] = time.split(':').map(Number)
+  const total = (((h * 60 + m + deltaMinutes) % 1440) + 1440) % 1440
+  return `${pad2(Math.floor(total / 60))}:${pad2(total % 60)}`
+}

@@ -1,4 +1,4 @@
-﻿import type { Strings } from './types'
+import type { Strings } from './types'
 
 export const kaa: Strings = {
   nav: {
@@ -32,6 +32,7 @@ export const kaa: Strings = {
   },
   prayer: {
     title: 'Namaz waqıtları',
+    names: ['Tań', 'Pesin', 'Ásir', 'Sham', 'Qúptan'],
   },
   newTask: {
     taskName: 'Reje atı',
@@ -80,6 +81,14 @@ export const kaa: Strings = {
     voice: 'Dawıs',
     cancel: 'Biykar etiw',
     confirm: 'Tastıyıqlaw',
+  },
+  reminders: {
+    tabAll: 'Bári',
+    tabDaily: 'Kúndelik',
+    tabPrayer: 'Namaz',
+    today: 'Búgin',
+    dailySummary: 'Kúnlik reje xabarı',
+    prayerAtTime: 'Namaz waqıtında',
   },
   months: [
     'Daliw',

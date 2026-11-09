@@ -32,6 +32,7 @@ export const uz: Strings = {
   },
   prayer: {
     title: 'Namoz vaqtlari',
+    names: ['Bomdod', 'Peshin', 'Asr', 'Shom', 'Xufton'],
   },
   newTask: {
     taskName: 'Reja nomi',
@@ -80,6 +81,14 @@ export const uz: Strings = {
     voice: 'Ovoz',
     cancel: 'Bekor qilish',
     confirm: 'Tasdiqlash',
+  },
+  reminders: {
+    tabAll: 'Hammasi',
+    tabDaily: 'Kundalik',
+    tabPrayer: 'Namoz',
+    today: 'Bugun',
+    dailySummary: 'Kunlik reja xabari',
+    prayerAtTime: 'Namoz vaqtida',
   },
   months: [
     'yanvar',

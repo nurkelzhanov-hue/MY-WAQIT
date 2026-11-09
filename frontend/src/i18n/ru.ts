@@ -32,6 +32,7 @@ export const ru: Strings = {
   },
   prayer: {
     title: 'Время намаза',
+    names: ['Фаджр', 'Зухр', 'Аср', 'Магриб', 'Иша'],
   },
   newTask: {
     taskName: 'Название плана',
@@ -80,6 +81,14 @@ export const ru: Strings = {
     voice: 'Голос',
     cancel: 'Отмена',
     confirm: 'Подтвердить',
+  },
+  reminders: {
+    tabAll: 'Все',
+    tabDaily: 'Ежедневные',
+    tabPrayer: 'Намаз',
+    today: 'Сегодня',
+    dailySummary: 'Ежедневная сводка планов',
+    prayerAtTime: 'В момент намаза',
   },
   months: [
     'января',

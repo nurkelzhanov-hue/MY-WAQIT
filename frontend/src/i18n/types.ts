@@ -30,6 +30,7 @@ export type Strings = {
   }
   prayer: {
     title: string
+    names: string[] // Fajr, Dhuhr, Asr, Maghrib, Isha
   }
   newTask: {
     taskName: string
@@ -77,6 +78,14 @@ export type Strings = {
     voice: string
     cancel: string
     confirm: string
+  }
+  reminders: {
+    tabAll: string
+    tabDaily: string
+    tabPrayer: string
+    today: string
+    dailySummary: string
+    prayerAtTime: string
   }
   months: string[]
   monthsTitle: string[] // month names used as headings
