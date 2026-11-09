@@ -63,6 +63,21 @@ export type Strings = {
     titleRequired: string
     back: string
   }
+  ai: {
+    title: string
+    intro: string
+    chipAddTask: string
+    chipToday: string
+    chipTomorrow: string
+    chipPrayer: string
+    placeholder: string
+    voicePrompt: string
+    pendingReply: string
+    send: string
+    voice: string
+    cancel: string
+    confirm: string
+  }
   months: string[]
   monthsTitle: string[] // month names used as headings
   weekdaysShort: string[] // Monday first

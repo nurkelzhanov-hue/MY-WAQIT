@@ -65,6 +65,22 @@ export const kaa: Strings = {
     titleRequired: 'Reje atın kiritiń',
     back: 'Artqa',
   },
+  ai: {
+    title: 'AI járdemshisi',
+    intro:
+      'Men MY WAQIT AI járdemshisi. Sizge rejelerdi dúziw, ózgertiw, kalendar, namaz waqıtları hám waqıt basqarıwda járdem beremen. Ne islewim kerek?',
+    chipAddTask: 'Reje qosıw',
+    chipToday: 'Búgingi rejelerim',
+    chipTomorrow: 'Erteńgi rejeler',
+    chipPrayer: 'Namaz waqıtları',
+    placeholder: 'Xabar jazıń...',
+    voicePrompt: 'Dawıs penen tapsırma beriń',
+    pendingReply: 'AI járdemshisi keyingi basqıshta jalǵanadı. Házir tek dizayn kórsetilip atır.',
+    send: 'Jiberiw',
+    voice: 'Dawıs',
+    cancel: 'Biykar etiw',
+    confirm: 'Tastıyıqlaw',
+  },
   months: [
     'Daliw',
     'Hut',

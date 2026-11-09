@@ -1,0 +1,200 @@
+.ai-page {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100dvh - 40px - var(--nav-h) - env(safe-area-inset-bottom, 0px));
+}
+
+.ai-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.chat-messages {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bubble-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.bubble-row.user {
+  justify-content: flex-end;
+}
+
+.bubble-avatar {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--card);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+}
+
+.bubble {
+  max-width: 82%;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.bubble-row.user .bubble {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--gold-dark);
+}
+
+.chat-footer {
+  position: sticky;
+  bottom: calc(var(--nav-h) + env(safe-area-inset-bottom, 0px));
+  padding: 12px 0 8px;
+  background: linear-gradient(to bottom, transparent, var(--bg) 25%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip-button {
+  padding: 10px 14px;
+  border-radius: 20px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  color: var(--text);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.chat-input-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 6px 6px 14px;
+  border-radius: 24px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+}
+
+.chat-input-icon {
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.chat-input {
+  flex: 1;
+  min-width: 0;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.chat-input:focus {
+  outline: none;
+}
+
+.chat-action {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold);
+  color: var(--gold-dark);
+  border: none;
+  cursor: pointer;
+}
+
+.voice-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+}
+
+.wave {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 60px;
+}
+
+.wave-bar {
+  width: 4px;
+  border-radius: 2px;
+  background: var(--gold);
+  animation: wave-pulse 1s ease-in-out infinite;
+}
+
+@keyframes wave-pulse {
+  0%,
+  100% {
+    transform: scaleY(0.45);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.voice-prompt {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.voice-controls {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.voice-mic {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold);
+  color: var(--gold-dark);
+}
+
+.voice-side {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.voice-timer {
+  font-size: 14px;
+  color: var(--muted);
+}

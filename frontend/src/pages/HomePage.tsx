@@ -4,6 +4,7 @@ import { Bell } from 'lucide-react'
 import { useLang } from '../hooks/useLang'
 import { useNow } from '../hooks/useNow'
 import { DEFAULT_TIMEZONE } from '../utils/config'
+import { pickGreeting } from '../utils/greeting'
 import ClockCard from '../components/home/ClockCard'
 import QuickActions from '../components/home/QuickActions'
 import TaskCard from '../components/home/TaskCard'
@@ -16,12 +17,7 @@ export default function HomePage() {
   const now = useNow(DEFAULT_TIMEZONE)
   const [doneIndexes, setDoneIndexes] = useState<number[]>([])
 
-  const greeting =
-    now.hour >= 5 && now.hour < 12
-      ? t.home.greetingMorning
-      : now.hour >= 12 && now.hour < 18
-        ? t.home.greetingDay
-        : t.home.greetingEvening
+  const greeting = pickGreeting(now.hour, t.home)
 
   const toggle = (index: number) => {
     setDoneIndexes((prev) =>

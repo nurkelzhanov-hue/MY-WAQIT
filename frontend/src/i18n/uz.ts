@@ -65,6 +65,22 @@ export const uz: Strings = {
     titleRequired: 'Reja nomini kiriting',
     back: 'Orqaga',
   },
+  ai: {
+    title: 'AI yordamchi',
+    intro:
+      "Men MY WAQIT AI yordamchisiman. Rejalarni tuzish, o'zgartirish, kalendar, namoz vaqtlari va vaqtni boshqarishda yordam beraman. Nima qilay?",
+    chipAddTask: "Reja qo'shish",
+    chipToday: 'Bugungi rejalarim',
+    chipTomorrow: 'Ertangi rejalar',
+    chipPrayer: 'Namoz vaqtlari',
+    placeholder: 'Xabar yozing...',
+    voicePrompt: 'Ovoz bilan topshiriq bering',
+    pendingReply: "AI yordamchi keyingi bosqichda ulanadi. Hozircha faqat dizayn ko'rsatilmoqda.",
+    send: 'Yuborish',
+    voice: 'Ovoz',
+    cancel: 'Bekor qilish',
+    confirm: 'Tasdiqlash',
+  },
   months: [
     'yanvar',
     'fevral',
