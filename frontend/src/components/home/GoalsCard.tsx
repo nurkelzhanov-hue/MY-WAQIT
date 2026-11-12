@@ -1,20 +1,25 @@
-import { useState } from 'react'
 import { Check, Target } from 'lucide-react'
 import { useLang } from '../../hooks/useLang'
+import { useNow } from '../../hooks/useNow'
+import { useTasks } from '../../hooks/useTasks'
+import { isDoneOn } from '../../data/taskTypes'
+import { statsStrings } from '../../i18n/statsStrings'
+import { DEFAULT_TIMEZONE } from '../../utils/config'
 
 const RADIUS = 24
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS
 
-// Goals are sample data for now; they will come from the database later.
+// Today's goals are the user's real tasks for today.
 export default function GoalsCard() {
-  const { t } = useLang()
-  const [done, setDone] = useState<number[]>([0, 1])
-  const total = t.home.goals.length
-  const percent = Math.round((done.length / total) * 100)
-
-  const toggle = (index: number) => {
-    setDone((prev) => (prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]))
-  }
+  const { t, lang } = useLang()
+  const now = useNow(DEFAULT_TIMEZONE)
+  const { tasksOn, toggleDone } = useTasks()
+  const today = { year: now.year, month: now.month, day: now.day }
+  const todayTasks = tasksOn(today)
+  const doneCount = todayTasks.filter((x) => isDoneOn(x, today)).length
+  const total = todayTasks.length
+  const percent = total === 0 ? 0 : Math.round((doneCount / total) * 100)
+  const empty = statsStrings[lang ?? 'kaa'].dailyEmpty
 
   return (
     <div className="hp-card">
@@ -24,7 +29,7 @@ export default function GoalsCard() {
             <Target size={26} className="gold" />
             {t.home.goalsTitle}
           </p>
-          <p className="hp-goals-progress">{t.home.goalsProgress(done.length, total)}</p>
+          <p className="hp-goals-progress">{t.home.goalsProgress(doneCount, total)}</p>
         </div>
         <svg width="68" height="68" viewBox="0 0 64 64" aria-label={`${percent}%`}>
           <defs>
@@ -52,14 +57,18 @@ export default function GoalsCard() {
       </div>
 
       <div className="hp-goal-list">
-        {t.home.goals.map((title, index) => (
-          <button key={index} className="hp-goal" onClick={() => toggle(index)}>
-            <span className={'hp-goal-check' + (done.includes(index) ? ' done' : '')}>
-              {done.includes(index) && <Check size={16} strokeWidth={3} />}
-            </span>
-            <span className="hp-goal-title">{title}</span>
-          </button>
-        ))}
+        {total === 0 && <p className="hp-goals-progress">{empty}</p>}
+        {todayTasks.map((task) => {
+          const done = isDoneOn(task, today)
+          return (
+            <button key={task.id} className="hp-goal" onClick={() => toggleDone(task.id, today)}>
+              <span className={'hp-goal-check' + (done ? ' done' : '')}>
+                {done && <Check size={16} strokeWidth={3} />}
+              </span>
+              <span className="hp-goal-title">{task.title}</span>
+            </button>
+          )
+        })}
       </div>
     </div>
   )
