@@ -1,4 +1,4 @@
-﻿import os
+import os
 
 from aiogram import Router
 from aiogram.filters import CommandStart
@@ -8,15 +8,21 @@ from keyboards.main_menu import open_app_keyboard
 
 router = Router()
 
+# The first message is sent before the user has chosen a language,
+# so it is shown in Karakalpak and Russian.
+WELCOME_TEXT = (
+    "MY WAQIT — AI waqıt hám reje basqarıwshıńız.\n\n"
+    "Rejelerińizdi, eskertiwlerińizdi hám namaz waqıtların bir orında basqarıń.\n\n"
+    "──────────\n\n"
+    "MY WAQIT — ваш AI-помощник по времени и планам.\n\n"
+    "Управляйте планами, напоминаниями и временем намаза в одном месте."
+)
+
 
 @router.message(CommandStart())
 async def cmd_start(message: Message):
-    text = (
-        "MY WAQIT \u2014 AI waq\u0131t h\u00e1m reje basqar\u0131wsh\u0131\u0144\u0131z.\n\n"
-        "Rejeleri\u0144izdi, eskertiwleri\u0144izdi h\u00e1m namaz waq\u0131tlar\u0131n bir or\u0131nda basqar\u0131\u0144."
-    )
     url = os.getenv("WEBAPP_URL", "")
     if url.startswith("https://"):
-        await message.answer(text, reply_markup=open_app_keyboard(url))
+        await message.answer(WELCOME_TEXT, reply_markup=open_app_keyboard(url))
     else:
-        await message.answer(text)
+        await message.answer(WELCOME_TEXT)
