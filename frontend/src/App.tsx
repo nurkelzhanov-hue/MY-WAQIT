@@ -1,3 +1,4 @@
+import { useCallback, useState } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout'
 import FormLayout from './layouts/FormLayout'
@@ -11,10 +12,18 @@ import ProfilePage from './pages/ProfilePage'
 import NewTaskPage from './pages/NewTaskPage'
 import PrayerPage from './pages/PrayerPage'
 import TariffPage from './pages/TariffPage'
+import SplashScreen from './components/SplashScreen'
 import TasksProvider from './data/TasksProvider'
 import './styles/theme.css'
 
 export default function App() {
+  const [ready, setReady] = useState(false)
+  const finishSplash = useCallback(() => setReady(true), [])
+
+  if (!ready) {
+    return <SplashScreen onDone={finishSplash} />
+  }
+
   return (
     <TasksProvider>
     <Routes>
