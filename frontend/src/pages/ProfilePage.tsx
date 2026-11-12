@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Bell, CalendarCheck, Crown, Flame, Globe, LogOut, Target, Trash2, User } from 'lucide-react'
+import { Bell, CalendarCheck, ChevronRight, Crown, Flame, Globe, LogOut, Target, Trash2, User } from 'lucide-react'
 import { useLang } from '../hooks/useLang'
 import { useNow } from '../hooks/useNow'
 import { useTasks } from '../hooks/useTasks'
@@ -47,16 +47,16 @@ export default function ProfilePage() {
       <AppHeader subtitle={t.profile.subtitle} />
 
       <div className="pf-hero">
-        <img className="pf-hero-art" src={asset('img/profile-banner-yurt.webp')} alt="" />
+        <img className="pf-hero-art" src={asset('img/profile-banner-wide.webp')} alt="" />
         <span className="pf-avatar">
           <User size={44} />
         </span>
         <div className="pf-who">
           <p className="pf-name">{displayName}</p>
           <p className="pf-role">{tg?.username ? `@${tg.username}` : t.profile.roleUser}</p>
-          <span className="pf-plan">
-            <Crown size={15} /> {isPro ? 'PRO' : 'FREE'}
-          </span>
+          <button className="pf-plan" onClick={() => navigate('/tariff')}>
+            <Crown size={15} /> {isPro ? 'PRO' : 'FREE'} <ChevronRight size={15} />
+          </button>
         </div>
       </div>
 

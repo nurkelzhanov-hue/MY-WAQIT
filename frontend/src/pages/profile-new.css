@@ -1,25 +1,29 @@
 .pf-hero {
-  display: flex; flex-wrap: wrap; align-items: flex-end; column-gap: 14px; row-gap: 0;
+  position: relative; display: flex; align-items: center; gap: 14px; overflow: hidden;
+  aspect-ratio: 12 / 5; min-height: 150px; padding: 0 14px; border-radius: 26px;
+  border: 1.5px solid rgba(244, 180, 63, 0.55); box-shadow: var(--glass-shadow), 0 0 18px rgba(244, 180, 63, 0.18);
+  background: #04192d;
 }
-.pf-hero-art {
-  display: block; flex: 0 0 100%; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: 50% 55%;
-  border-radius: 26px; border: 1px solid var(--card-border); box-shadow: var(--glass-shadow);
+.pf-hero-art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 92% 50%; }
+.pf-hero::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(90deg, rgba(0, 11, 25, 0.42) 0%, rgba(0, 11, 25, 0.12) 45%, rgba(0, 11, 25, 0) 70%);
 }
+.pf-avatar, .pf-who { position: relative; z-index: 2; }
 .pf-avatar {
-  position: relative; z-index: 2; margin: -46px 0 0 16px;
-  width: 92px; height: 92px; flex-shrink: 0; border-radius: 50%;
+  width: 76px; height: 76px; flex-shrink: 0; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   background: radial-gradient(circle at 50% 30%, #1a2f55, #04192d);
   border: 3px solid var(--gold); color: var(--gold);
-  box-shadow: 0 0 22px rgba(244, 180, 63, 0.4);
+  box-shadow: 0 0 20px rgba(244, 180, 63, 0.45);
 }
-.pf-who { flex: 1; min-width: 0; padding: 10px 0 2px; }
-.pf-name { margin: 0; font-size: 22px; font-weight: 800; overflow-wrap: anywhere; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); }
-.pf-role { margin: 2px 0 8px; font-size: 14px; color: #cbd5e1; }
+.pf-who { min-width: 0; max-width: 50%; }
+.pf-name { margin: 0; font-size: 19px; font-weight: 800; line-height: 1.2; overflow-wrap: anywhere; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85); }
+.pf-role { margin: 2px 0 8px; font-size: 13px; color: #fff; text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85); }
 .pf-plan {
-  display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px;
-  border: 1.5px solid var(--gold); color: var(--gold); font-size: 13px; font-weight: 800;
-  background: rgba(244, 180, 63, 0.12);
+  display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; cursor: pointer;
+  border: 1.5px solid var(--gold); color: var(--gold-light); font-family: inherit; font-size: 14px; font-weight: 800;
+  background: rgba(2, 20, 38, 0.72); box-shadow: 0 0 12px rgba(244, 180, 63, 0.35);
 }
 .pf-stats {
   display: grid; grid-template-columns: repeat(3, 1fr); padding: 14px 4px; border-radius: 24px;
