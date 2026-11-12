@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { Send } from 'lucide-react'
 import { useLang } from '../hooks/useLang'
 import './screens.css'
+import { asset } from '../utils/assets'
 
 export default function WelcomePage() {
   const { t } = useLang()
@@ -12,7 +13,7 @@ export default function WelcomePage() {
       <div className="stars" />
       <div className="welcome-main">
         <div className="welcome-logo">
-          <img src="/img/welcome-logo.webp" alt="" />
+          <img src={asset('img/welcome-logo.webp')} alt="" />
         </div>
         <h1 className="brand">MY WAQIT</h1>
         <div className="brand-divider">
@@ -22,7 +23,7 @@ export default function WelcomePage() {
         </div>
         <p className="tagline">{t.welcome.tagline}</p>
       </div>
-      <img className="skyline" src="/img/welcome-skyline.webp" alt="" />
+      <img className="skyline" src={asset('img/welcome-skyline.webp')} alt="" />
       <div className="screen-footer">
         <button className="btn-gold btn-icon" onClick={() => navigate('/language')}>
           <Send size={22} />

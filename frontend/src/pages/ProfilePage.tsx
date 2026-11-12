@@ -14,6 +14,7 @@ import ProfileRow from '../components/profile/ProfileRow'
 import ConfirmDialog from '../components/ui/ConfirmDialog'
 import './profile.css'
 import './profile-new.css'
+import { asset } from '../utils/assets'
 
 export default function ProfilePage() {
   const { t, lang, resetLang } = useLang()
@@ -38,7 +39,7 @@ export default function ProfilePage() {
       // ignore
     }
     resetLang()
-    window.location.assign('/welcome')
+    window.location.assign(asset('welcome'))
   }
 
   return (
@@ -46,7 +47,7 @@ export default function ProfilePage() {
       <AppHeader subtitle={t.profile.subtitle} />
 
       <div className="pf-hero">
-        <img className="pf-hero-art" src="/img/profile-banner.webp" alt="" />
+        <img className="pf-hero-art" src={asset('img/profile-banner.webp')} alt="" />
         <span className="pf-avatar">
           <User size={44} />
         </span>

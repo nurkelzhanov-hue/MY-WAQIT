@@ -16,6 +16,7 @@ import { DEFAULT_TIMEZONE } from '../utils/config'
 import AppHeader from '../components/AppHeader'
 import Switch from '../components/ui/Switch'
 import './prayer.css'
+import { asset } from '../utils/assets'
 
 const ICONS = [Sunrise, Sun, SunMedium, Sunset, Moon]
 
@@ -35,7 +36,7 @@ export default function PrayerPage() {
       <AppHeader subtitle={t.prayer.title} left="back" onLeft={() => navigate(-1)} />
 
       <div className="prayer-hero">
-        <img src="/img/prayer-mosque.webp" alt="" />
+        <img src={asset('img/prayer-mosque.webp')} alt="" />
         <span className="prayer-loc">
           <MapPin size={18} />
           {t.prayer.location}

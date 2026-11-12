@@ -9,6 +9,7 @@ import { pickGreeting } from '../utils/greeting'
 import ChatBubble from '../components/ai/ChatBubble'
 import VoicePanel from '../components/ai/VoicePanel'
 import './ai.css'
+import { asset } from '../utils/assets'
 
 type Message = {
   id: number
@@ -66,7 +67,7 @@ export default function AiPage() {
       <AppHeader subtitle={t.ai.title} />
 
       <div className="ai-banner">
-        <img className="ai-robot" src="/img/ai-robot.webp" alt="" />
+        <img className="ai-robot" src={asset('img/ai-robot.webp')} alt="" />
         <div className="ai-banner-text">
           <span className="ai-banner-title">{t.ai.title}</span>
           <span className="ai-banner-sub">{t.ai.bannerSub}</span>

@@ -5,6 +5,7 @@ import { dictionaries, LANGUAGE_NAMES, type Lang } from '../i18n'
 import { useLang } from '../hooks/useLang'
 import Flag from '../components/art/Flag'
 import './screens.css'
+import { asset } from '../utils/assets'
 
 const CODES: Lang[] = ['kaa', 'uz', 'ru']
 
@@ -23,7 +24,7 @@ export default function LanguagePage() {
     <div className="welcome language">
       <div className="stars" />
       <div className="language-top">
-        <img className="lang-icon" src="/img/lang-icon.webp" alt="" />
+        <img className="lang-icon" src={asset('img/lang-icon.webp')} alt="" />
         <h1 className="screen-title">{text.language.title}</h1>
       </div>
 
@@ -47,7 +48,7 @@ export default function LanguagePage() {
         ))}
       </div>
 
-      <img className="skyline skyline-lang" src="/img/lang-skyline.webp" alt="" />
+      <img className="skyline skyline-lang" src={asset('img/lang-skyline.webp')} alt="" />
 
       <div className="screen-footer">
         <button className="btn-gold btn-icon" onClick={handleContinue}>

@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { Landmark } from 'lucide-react'
 import { useLang } from '../../hooks/useLang'
+import { asset } from '../../utils/assets'
 
 // Times are not hardcoded: they will come from a verified API in a later stage.
 export default function PrayerCard() {
@@ -24,7 +25,7 @@ export default function PrayerCard() {
           </div>
         ))}
       </div>
-      <img className="hp-prayer-img" src="/img/prayer-card.webp" alt="" />
+      <img className="hp-prayer-img" src={asset('img/prayer-card.webp')} alt="" />
     </button>
   )
 }
