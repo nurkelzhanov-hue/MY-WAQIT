@@ -1,0 +1,59 @@
+.hg {
+  --hg-cycle: 3.6s;
+  display: block;
+  width: min(210px, 56vw);
+  height: auto;
+  margin: 0 auto;
+  animation: hg-glow var(--hg-cycle) ease-in-out infinite;
+}
+
+.hg-frame { transform-origin: 100px 135px; animation: hg-flip var(--hg-cycle) infinite; }
+.hg-sand { animation: hg-fade var(--hg-cycle) linear infinite; }
+.hg-top { animation: hg-top var(--hg-cycle) linear infinite; }
+.hg-pile { transform-origin: 100px 232px; animation: hg-pile var(--hg-cycle) linear infinite; }
+.hg-stream { animation: hg-stream var(--hg-cycle) linear infinite; }
+
+/* the sand level in the top bulb sinks; flat rect is clipped by the glass and the neck */
+@keyframes hg-top {
+  0% { transform: translateY(0); }
+  70% { transform: translateY(78px); }
+  70.1%, 100% { transform: translateY(0); }
+}
+
+/* the pile in the bottom bulb grows */
+@keyframes hg-pile {
+  0% { transform: scaleY(0.03); }
+  70% { transform: scaleY(1); }
+  70.1%, 100% { transform: scaleY(0.03); }
+}
+
+/* the thin falling stream, only while sand is flowing */
+@keyframes hg-stream {
+  0%, 2% { opacity: 0; }
+  5%, 68% { opacity: 1; }
+  71%, 100% { opacity: 0; }
+}
+
+/* sand fades while the glass turns over, and comes back in the starting state */
+@keyframes hg-fade {
+  0%, 70% { opacity: 1; }
+  74%, 93% { opacity: 0; }
+  98%, 100% { opacity: 1; }
+}
+
+/* the glass turns 180 degrees (it looks identical when upside down, so the loop is seamless) */
+@keyframes hg-flip {
+  0%, 74% { transform: rotate(0deg); }
+  94%, 100% { transform: rotate(180deg); }
+}
+
+@keyframes hg-glow {
+  0%, 100% { filter: drop-shadow(0 0 10px rgba(244, 180, 63, 0.3)); }
+  50% { filter: drop-shadow(0 0 22px rgba(244, 180, 63, 0.6)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hg, .hg-frame, .hg-sand, .hg-top, .hg-pile, .hg-stream { animation: none; }
+  .hg-top { transform: translateY(39px); }
+  .hg-pile { transform: scaleY(0.5); }
+}

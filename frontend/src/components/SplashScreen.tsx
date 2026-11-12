@@ -1,19 +1,20 @@
 import { useEffect, useState } from 'react'
 import { useLang } from '../hooks/useLang'
 import { asset } from '../utils/assets'
+import HourglassAnimated from './HourglassAnimated'
 import '../pages/screens.css'
 import './splash.css'
 
-const MIN_MS = 1700 // show the splash at least this long so the hourglass visibly turns
-const MAX_MS = 4500 // never block the app longer than this, even if an image is slow
+const MIN_MS = 3200 // long enough to see the sand run and the glass start to turn
+const MAX_MS = 4800 // never block the app longer than this, even if an image is slow
 
 type Props = { onDone: () => void }
 
 // Loading screen shown when the app opens: same look as the welcome page,
-// with the hourglass turning while the app is getting ready.
+// with a living hourglass (sand flows, glass turns over) while the app is getting ready.
 export default function SplashScreen({ onDone }: Props) {
   const { t } = useLang()
-  const [logoReady, setLogoReady] = useState(false)
+  const [imageReady, setImageReady] = useState(false)
   const [minPassed, setMinPassed] = useState(false)
 
   useEffect(() => {
@@ -26,21 +27,15 @@ export default function SplashScreen({ onDone }: Props) {
   }, [onDone])
 
   useEffect(() => {
-    if (logoReady && minPassed) onDone()
-  }, [logoReady, minPassed, onDone])
+    if (imageReady && minPassed) onDone()
+  }, [imageReady, minPassed, onDone])
 
   return (
     <div className="welcome splash">
       <div className="stars" />
       <div className="welcome-main">
-        <div className="welcome-logo">
-          <img
-            className="splash-hourglass"
-            src={asset('img/welcome-logo.webp')}
-            alt=""
-            onLoad={() => setLogoReady(true)}
-            onError={() => setLogoReady(true)}
-          />
+        <div className="splash-hourglass-wrap">
+          <HourglassAnimated />
         </div>
         <h1 className="brand">MY WAQIT</h1>
         <div className="brand-divider">
@@ -55,7 +50,13 @@ export default function SplashScreen({ onDone }: Props) {
           <span />
         </div>
       </div>
-      <img className="skyline" src={asset('img/welcome-skyline.webp')} alt="" />
+      <img
+        className="skyline"
+        src={asset('img/welcome-skyline.webp')}
+        alt=""
+        onLoad={() => setImageReady(true)}
+        onError={() => setImageReady(true)}
+      />
     </div>
   )
 }
