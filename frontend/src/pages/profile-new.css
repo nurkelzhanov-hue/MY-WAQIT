@@ -1,15 +1,17 @@
 .pf-hero {
   position: relative; display: flex; align-items: center; gap: 16px; overflow: hidden;
-  padding: 18px 16px; border-radius: 26px; min-height: 150px;
-  background: linear-gradient(120deg, #3a2a4a 0%, #14284d 55%, #04192d 100%);
+  padding: 18px 16px; border-radius: 26px; min-height: 170px;
+  background: #04192d;
   border: 1px solid var(--card-border); box-shadow: var(--glass-shadow);
 }
 .pf-hero-art {
-  position: absolute; right: 0; top: 0; height: 100%; width: 70%; object-fit: cover; opacity: 0.75;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 55%);
-  mask-image: linear-gradient(to right, transparent 0%, #000 55%);
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 62%;
 }
-.pf-avatar, .pf-who { position: relative; z-index: 1; }
+.pf-hero::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(90deg, rgba(0, 11, 25, 0.78) 0%, rgba(0, 11, 25, 0.45) 48%, rgba(0, 11, 25, 0.05) 100%);
+}
+.pf-avatar, .pf-who { position: relative; z-index: 2; }
 .pf-avatar {
   width: 84px; height: 84px; flex-shrink: 0; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
