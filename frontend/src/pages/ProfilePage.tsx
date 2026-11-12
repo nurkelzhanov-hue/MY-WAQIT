@@ -47,7 +47,7 @@ export default function ProfilePage() {
       <AppHeader subtitle={t.profile.subtitle} />
 
       <div className="pf-hero">
-        <img className="pf-hero-art" src={asset('img/profile-banner.webp')} alt="" />
+        <img className="pf-hero-art" src={asset('img/profile-banner-yurt.webp')} alt="" />
         <span className="pf-avatar">
           <User size={44} />
         </span>
