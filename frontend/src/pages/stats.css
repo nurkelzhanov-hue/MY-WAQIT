@@ -39,7 +39,8 @@
 
 .st-month { display: flex; align-items: center; gap: 12px; }
 .st-month ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; flex: 1; min-width: 0; font-size: 13px; }
-.st-month li { display: flex; align-items: center; gap: 6px; }
+.st-month li { display: flex; align-items: center; gap: 6px; line-height: 1.15; }
+.st-month li b { flex: none; }
 .st-month li b { margin-left: auto; }
 .dot { width: 12px; height: 12px; border-radius: 50%; flex: none; }
 .dot.green { background: #4ade80; } .dot.red { background: #f87171; } .dot.grey { background: #8ea6c4; }

@@ -118,7 +118,7 @@ export const statsStrings: Record<Lang, StatsStrings> = {
     monthTotal: 'Всего планов',
     noData: 'Пока нет планов',
     goalTitle: 'Цель на месяц',
-    goalLine: (n) => `Выполнять минимум ${n} планов в день`,
+    goalLine: (n) => `Минимум в день: ${n}`,
     goalDays: (a, b) => `${a} / ${b} дн.`,
     dailyTitle: 'Цель на день',
     dailyProgress: (a, b) => `${a} / ${b} выполнено`,

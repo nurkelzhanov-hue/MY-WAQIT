@@ -22,17 +22,19 @@ function Ring({ percent, size, label, sub }: { percent: number; size: number; la
     <div className="st-ring" style={{ width: size, height: size }}>
       <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
         <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="rgba(120,160,210,0.2)" strokeWidth={stroke} />
-        <circle
-          cx={size / 2}
-          cy={size / 2}
-          r={r}
-          fill="none"
-          stroke="url(#stGold)"
-          strokeWidth={stroke}
-          strokeLinecap="round"
-          strokeDasharray={`${(c * Math.min(percent, 100)) / 100} ${c}`}
-          transform={`rotate(-90 ${size / 2} ${size / 2})`}
-        />
+        {percent > 0 && (
+          <circle
+            cx={size / 2}
+            cy={size / 2}
+            r={r}
+            fill="none"
+            stroke="url(#stGold)"
+            strokeWidth={stroke}
+            strokeLinecap="round"
+            strokeDasharray={`${(c * Math.min(percent, 100)) / 100} ${c}`}
+            transform={`rotate(-90 ${size / 2} ${size / 2})`}
+          />
+        )}
         <defs>
           <linearGradient id="stGold" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0" stopColor="#fdd46e" />
