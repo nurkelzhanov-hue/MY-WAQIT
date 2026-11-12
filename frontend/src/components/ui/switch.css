@@ -10,7 +10,8 @@
 }
 
 .switch.on {
-  background: #22c55e;
+  background: linear-gradient(180deg, #fdd46e, #e39a27);
+  box-shadow: 0 0 12px rgba(244, 180, 63, 0.4);
 }
 
 .switch-knob {

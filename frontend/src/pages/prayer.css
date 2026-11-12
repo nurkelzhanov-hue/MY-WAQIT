@@ -137,3 +137,8 @@
 .prayer-row.first { background: linear-gradient(90deg, rgba(244, 180, 63, 0.16), transparent); }
 .prayer-row.first .prayer-time { color: var(--gold); }
 .prayer-time { margin-right: 4px; }
+.prayer-hero { min-height: 190px; }
+.prayer-hero img { height: 190px; object-fit: cover; object-position: center 40%; }
+.prayer-row { padding: 16px; }
+.prayer-name { font-size: 17px; }
+.prayer-time { font-size: 20px; color: var(--text); }
