@@ -7,6 +7,13 @@ export type Lang = 'kaa' | 'uz' | 'ru'
 
 export const dictionaries: Record<Lang, Strings> = { kaa, uz, ru }
 
+// Language names are always shown in their own language.
+export const LANGUAGE_NAMES: Record<Lang, string> = {
+  kaa: 'Qaraqalpaq tili',
+  uz: 'Ózbek tili',
+  ru: 'Rus tili',
+}
+
 const STORAGE_KEY = 'waqit_lang'
 
 export function loadLang(): Lang | null {
@@ -23,5 +30,13 @@ export function saveLang(lang: Lang): void {
     localStorage.setItem(STORAGE_KEY, lang)
   } catch {
     // storage may be unavailable; the choice then lasts until reload
+  }
+}
+
+export function clearLang(): void {
+  try {
+    localStorage.removeItem(STORAGE_KEY)
+  } catch {
+    // nothing to clear if storage is unavailable
   }
 }

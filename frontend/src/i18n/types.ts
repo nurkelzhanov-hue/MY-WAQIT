@@ -91,6 +91,19 @@ export type Strings = {
     dailySummary: string
     prayerAtTime: string
   }
+  profile: {
+    guestName: string
+    personalInfo: string
+    settings: string
+    language: string
+    location: string
+    timezone: string
+    deleteData: string
+    logout: string
+    deleteQuestion: string
+    deleteConfirm: string
+    cancel: string
+  }
   months: string[]
   monthsTitle: string[] // month names used as headings
   weekdaysShort: string[] // Monday first

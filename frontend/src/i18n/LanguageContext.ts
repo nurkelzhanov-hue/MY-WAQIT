@@ -6,6 +6,7 @@ export type LanguageContextValue = {
   lang: Lang | null
   t: Strings
   setLang: (lang: Lang) => void
+  resetLang: () => void
 }
 
 export const LanguageContext = createContext<LanguageContextValue | null>(null)
