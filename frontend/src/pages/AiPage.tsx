@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
-import { Mic, Send, Sparkles } from 'lucide-react'
+import { CalendarPlus, ListChecks, Mic, Moon, Send, Sparkles, Sunrise } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import AppHeader from '../components/AppHeader'
 import { useLang } from '../hooks/useLang'
 import { useNow } from '../hooks/useNow'
 import { DEFAULT_TIMEZONE } from '../utils/config'
@@ -16,6 +18,7 @@ type Message = {
 
 export default function AiPage() {
   const { t } = useLang()
+  const navigate = useNavigate()
   const now = useNow(DEFAULT_TIMEZONE)
   const [messages, setMessages] = useState<Message[]>([])
   const [input, setInput] = useState('')
@@ -46,7 +49,7 @@ export default function AiPage() {
   if (voiceMode) {
     return (
       <section className="ai-page">
-        <h1 className="ai-title">{t.ai.title}</h1>
+        <AppHeader subtitle={t.ai.title} />
         <VoicePanel
           onCancel={() => setVoiceMode(false)}
           onConfirm={() => {
@@ -58,11 +61,36 @@ export default function AiPage() {
     )
   }
 
-  const chips = [t.ai.chipAddTask, t.ai.chipToday, t.ai.chipTomorrow, t.ai.chipPrayer]
-
   return (
     <section className="ai-page">
-      <h1 className="ai-title">{t.ai.title}</h1>
+      <AppHeader subtitle={t.ai.title} />
+
+      <div className="ai-banner">
+        <img className="ai-robot" src="/img/ai-robot.webp" alt="" />
+        <div className="ai-banner-text">
+          <span className="ai-banner-title">{t.ai.title}</span>
+          <span className="ai-banner-sub">{t.ai.bannerSub}</span>
+        </div>
+      </div>
+
+      <div className="ai-tiles">
+        <button className="ai-tile" onClick={() => navigate('/new-task')}>
+          <CalendarPlus size={26} className="gold" />
+          <span>{t.ai.chipAddTask}</span>
+        </button>
+        <button className="ai-tile" onClick={() => navigate('/calendar')}>
+          <ListChecks size={26} className="gold" />
+          <span>{t.ai.chipToday}</span>
+        </button>
+        <button className="ai-tile" onClick={() => navigate('/calendar')}>
+          <Sunrise size={26} className="gold" />
+          <span>{t.ai.chipTomorrow}</span>
+        </button>
+        <button className="ai-tile" onClick={() => navigate('/prayer')}>
+          <Moon size={26} className="gold" />
+          <span>{t.ai.chipPrayer}</span>
+        </button>
+      </div>
 
       <div className="chat-messages">
         <ChatBubble role="assistant">
@@ -80,14 +108,6 @@ export default function AiPage() {
       </div>
 
       <div className="chat-footer">
-        <div className="chips">
-          {chips.map((label) => (
-            <button key={label} className="chip-button" onClick={() => send(label)}>
-              {label}
-            </button>
-          ))}
-        </div>
-
         <div className="chat-input-bar">
           <Sparkles size={18} className="chat-input-icon" />
           <input

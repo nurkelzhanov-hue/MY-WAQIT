@@ -81,6 +81,7 @@ export const uz: Strings = {
     title: 'AI yordamchi',
     intro:
       "Men MY WAQIT AI yordamchisiman. Rejalarni tuzish, o'zgartirish, kalendar, namoz vaqtlari va vaqtni boshqarishda yordam beraman. Nima qilay?",
+    bannerSub: 'Rejalaringizni aqlli boshqaradi',
     chipAddTask: "Reja qo'shish",
     chipToday: 'Bugungi rejalarim',
     chipTomorrow: 'Ertangi rejalar',

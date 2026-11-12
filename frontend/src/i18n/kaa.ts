@@ -81,6 +81,7 @@ export const kaa: Strings = {
     title: 'AI járdemshisi',
     intro:
       'Men MY WAQIT AI járdemshisi. Sizge rejelerdi dúziw, ózgertiw, kalendar, namaz waqıtları hám waqıt basqarıwda járdem beremen. Ne islewim kerek?',
+    bannerSub: 'Rejelerińizdi áqıllı túrde basqaradı',
     chipAddTask: 'Reje qosıw',
     chipToday: 'Búgingi rejelerim',
     chipTomorrow: 'Erteńgi rejeler',

@@ -122,3 +122,18 @@
   font-size: 15px;
   font-weight: 600;
 }
+
+/* ---- premium prayer screen ---- */
+.prayer-hero { position: relative; border-radius: 28px; overflow: hidden; border: 1px solid var(--card-border); box-shadow: var(--glass-shadow); }
+.prayer-hero img { display: block; width: 100%; height: auto; }
+.prayer-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 55%, rgba(0, 11, 25, 0.85)); pointer-events: none; }
+.prayer-loc {
+  position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%); z-index: 1;
+  display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px; white-space: nowrap;
+  background: rgba(2, 20, 38, 0.85); border: 1.5px solid var(--gold); color: var(--text); font-weight: 600; font-size: 14px;
+}
+.prayer-loc svg { color: var(--gold); }
+.prayer-date { margin: 0; font-size: 14px; font-weight: 600; text-align: center; color: var(--muted); }
+.prayer-row.first { background: linear-gradient(90deg, rgba(244, 180, 63, 0.16), transparent); }
+.prayer-row.first .prayer-time { color: var(--gold); }
+.prayer-time { margin-right: 4px; }

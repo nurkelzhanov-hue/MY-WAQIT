@@ -78,6 +78,7 @@ export type Strings = {
   ai: {
     title: string
     intro: string
+    bannerSub: string
     chipAddTask: string
     chipToday: string
     chipTomorrow: string

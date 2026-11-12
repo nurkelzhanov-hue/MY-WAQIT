@@ -2,7 +2,10 @@ import { useState } from 'react'
 import { Bell } from 'lucide-react'
 import { useLang } from '../hooks/useLang'
 import { shiftTime } from '../utils/datetime'
-import { DEMO_REMINDER_MINUTES, DEMO_TIMES } from '../data/demo'
+import { useNow } from '../hooks/useNow'
+import { useTasks } from '../hooks/useTasks'
+import { DEFAULT_TIMEZONE } from '../utils/config'
+import { isDoneOn } from '../data/taskTypes'
 import ReminderItem from '../components/reminders/ReminderItem'
 import './reminders.css'
 
@@ -13,7 +16,10 @@ const DAILY_SUMMARY_TIME = '08:00'
 export default function RemindersPage() {
   const { t } = useLang()
   const [tab, setTab] = useState<Tab>('all')
-  const [doneIndexes, setDoneIndexes] = useState<number[]>([])
+  const now = useNow(DEFAULT_TIMEZONE)
+  const { tasksOn, toggleDone } = useTasks()
+  const today = { year: now.year, month: now.month, day: now.day }
+  const todayTasks = tasksOn(today)
   const [dailyOn, setDailyOn] = useState(true)
   const [prayerOn, setPrayerOn] = useState<boolean[]>([true, true, true, true, true])
 
@@ -22,12 +28,6 @@ export default function RemindersPage() {
     { id: 'daily', label: t.reminders.tabDaily },
     { id: 'prayer', label: t.reminders.tabPrayer },
   ]
-
-  const toggleDone = (index: number) => {
-    setDoneIndexes((prev) =>
-      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index],
-    )
-  }
 
   const togglePrayer = (index: number) => {
     setPrayerOn((prev) => prev.map((value, i) => (i === index ? !value : value)))
@@ -61,16 +61,17 @@ export default function RemindersPage() {
       {showTasks && (
         <div className="reminder-group">
           <h2 className="group-title">
-            {t.reminders.today} ({t.demoTasks.length})
+            {t.reminders.today} ({todayTasks.length})
           </h2>
-          {t.demoTasks.map((title, index) => (
+          {todayTasks.length === 0 && <p className="muted">{t.calendar.noTasks}</p>}
+          {todayTasks.map((task) => (
             <ReminderItem
-              key={index}
-              title={title}
-              subtitle={`${shiftTime(DEMO_TIMES[index], -DEMO_REMINDER_MINUTES)} (${t.newTask.reminderOptions.m30})`}
+              key={task.id}
+              title={task.title}
+              subtitle={`${shiftTime(task.time, -task.reminderMinutes)} (${t.home.reminderBefore(task.reminderMinutes)})`}
               control="check"
-              on={doneIndexes.includes(index)}
-              onToggle={() => toggleDone(index)}
+              on={isDoneOn(task, today)}
+              onToggle={() => toggleDone(task.id, today)}
             />
           ))}
         </div>
