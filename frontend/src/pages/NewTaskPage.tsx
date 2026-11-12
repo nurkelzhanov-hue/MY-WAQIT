@@ -1,10 +1,13 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 import { useLang } from '../hooks/useLang'
 import { useNow } from '../hooks/useNow'
 import { DEFAULT_TIMEZONE } from '../utils/config'
 import { pad2 } from '../utils/datetime'
+import { useTasks } from '../hooks/useTasks'
+import type { Category } from '../data/taskTypes'
+import { CATEGORY_META, CATEGORY_ORDER } from '../components/tasks/categoryMeta'
 import Field from '../components/form/Field'
 import './newtask.css'
 
@@ -15,10 +18,18 @@ export default function NewTaskPage() {
   const { t } = useLang()
   const navigate = useNavigate()
   const now = useNow(DEFAULT_TIMEZONE)
+  const { addTask } = useTasks()
+  const [params] = useSearchParams()
+  const dateParam = params.get('date')
 
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
-  const [date, setDate] = useState(() => `${now.year}-${pad2(now.month)}-${pad2(now.day)}`)
+  const [date, setDate] = useState(() =>
+    dateParam && /^\d{4}-\d{2}-\d{2}$/.test(dateParam)
+      ? dateParam
+      : `${now.year}-${pad2(now.month)}-${pad2(now.day)}`,
+  )
+  const [category, setCategory] = useState<Category>('personal')
   const [time, setTime] = useState('09:00')
   const [reminder, setReminder] = useState<ReminderChoice>('30')
   const [customMinutes, setCustomMinutes] = useState('45')
@@ -68,7 +79,19 @@ export default function NewTaskPage() {
       setShowError(true)
       return
     }
-    // Saving to the database is connected in a later stage (task system).
+    const minutes = reminder === 'custom' ? Math.max(1, Number(customMinutes) || 30) : Number(reminder)
+    addTask({
+      title: title.trim(),
+      description: description.trim(),
+      date,
+      time,
+      reminderMinutes: minutes,
+      repeat,
+      repeatDays,
+      category,
+      location: location.trim(),
+      note: note.trim(),
+    })
     goBack()
   }
 
@@ -89,6 +112,25 @@ export default function NewTaskPage() {
             placeholder={n.taskNamePlaceholder}
             onChange={(e) => setTitle(e.target.value)}
           />
+        </Field>
+
+        <Field label={n.category}>
+          <div className="weekday-chips">
+            {CATEGORY_ORDER.map((c) => {
+              const Icon = CATEGORY_META[c].icon
+              return (
+                <button
+                  key={c}
+                  type="button"
+                  className={'chip' + (category === c ? ' selected' : '')}
+                  onClick={() => setCategory(c)}
+                >
+                  <Icon size={14} style={{ verticalAlign: '-2px', marginRight: 6 }} />
+                  {n.categories[c]}
+                </button>
+              )
+            })}
+          </div>
         </Field>
 
         <Field label={n.description}>

@@ -29,6 +29,11 @@ export const ru: Strings = {
     todayTasks: 'Планы на сегодня',
     viewAll: 'Все',
     reminderBefore: (minutes) => `Напоминание за ${minutes} мин`,
+    appSubtitle: 'AI-помощник по времени',
+    planned: 'Запланировано',
+    goalsTitle: 'Цели на день',
+    goalsProgress: (done, total) => `${done} / ${total} выполнено`,
+    goals: ['Составить план на завтра', 'Подготовиться к занятию', 'Пойти на тренировку'],
   },
   prayer: {
     title: 'Время намаза',
@@ -69,6 +74,8 @@ export const ru: Strings = {
     save: 'Сохранить',
     titleRequired: 'Введите название плана',
     back: 'Назад',
+    category: 'Категория',
+    categories: { personal: 'Личное', work: 'Работа', study: 'Учёба', sport: 'Спорт', other: 'Другое' },
   },
   ai: {
     title: 'AI-помощник',
@@ -139,6 +146,10 @@ export const ru: Strings = {
   weekdaysShort: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
   calendar: {
     noTasks: 'На этот день планов нет',
+    month: 'Месяц',
+    week: 'Неделя',
+    day: 'День',
+    done: 'Выполнено',
   },
-  demoTasks: ['Личная встреча', 'Подготовка к занятию', 'Спорт'],
+  demoTasks: ['Личная встреча', 'Онлайн-занятие', 'Спорт (тренировка)'],
 }

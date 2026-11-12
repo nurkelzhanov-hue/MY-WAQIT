@@ -27,6 +27,11 @@ export type Strings = {
     todayTasks: string
     viewAll: string
     reminderBefore: (minutes: number) => string
+    appSubtitle: string
+    planned: string
+    goalsTitle: string
+    goalsProgress: (done: number, total: number) => string
+    goals: string[]
   }
   prayer: {
     title: string
@@ -67,6 +72,8 @@ export type Strings = {
     save: string
     titleRequired: string
     back: string
+    category: string
+    categories: { personal: string; work: string; study: string; sport: string; other: string }
   }
   ai: {
     title: string
@@ -109,6 +116,10 @@ export type Strings = {
   weekdaysShort: string[] // Monday first
   calendar: {
     noTasks: string
+    month: string
+    week: string
+    day: string
+    done: string
   }
   weekdays: string[] // Monday first
   demoTasks: string[] // temporary sample data until the database is connected

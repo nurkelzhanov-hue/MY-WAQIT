@@ -69,3 +69,22 @@ export function shiftTime(time: string, deltaMinutes: number): string {
   const total = (((h * 60 + m + deltaMinutes) % 1440) + 1440) % 1440
   return `${pad2(Math.floor(total / 60))}:${pad2(total % 60)}`
 }
+
+// "YYYY-MM-DD" helpers
+export function toIso(d: Ymd): string {
+  return `${d.year}-${pad2(d.month)}-${pad2(d.day)}`
+}
+
+export function fromIso(iso: string): Ymd {
+  const [year, month, day] = iso.split('-').map(Number)
+  return { year, month, day }
+}
+
+export function addDays(d: Ymd, delta: number): Ymd {
+  const x = new Date(Date.UTC(d.year, d.month - 1, d.day + delta))
+  return { year: x.getUTCFullYear(), month: x.getUTCMonth() + 1, day: x.getUTCDate() }
+}
+
+export function compareYmd(a: Ymd, b: Ymd): number {
+  return toIso(a).localeCompare(toIso(b))
+}

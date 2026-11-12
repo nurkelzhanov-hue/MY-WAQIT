@@ -1,0 +1,73 @@
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.app-header-side {
+  width: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.app-header-side.right {
+  justify-content: flex-end;
+}
+
+.app-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.app-header-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.app-header-title {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.app-header-sub {
+  margin-top: 3px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.icon-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.icon-btn.gold {
+  color: var(--gold);
+}
+
+.icon-btn .bell-dot {
+  position: absolute;
+  top: 8px;
+  right: 9px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff9f1a;
+  border: 2px solid #031a30;
+}
+
+.icon-btn.has-dot {
+  position: relative;
+}

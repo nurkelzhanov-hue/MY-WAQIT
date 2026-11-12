@@ -1,0 +1,335 @@
+.hp {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.gold {
+  color: var(--gold);
+}
+
+/* ---- greeting banner ---- */
+.hp-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 26px;
+  border: 1px solid var(--card-border);
+  background:
+    linear-gradient(90deg, rgba(0, 12, 31, 0.9) 0%, rgba(0, 12, 31, 0.45) 55%, rgba(0, 12, 31, 0.15) 100%),
+    url('/img/sunrise-banner.webp') center / cover no-repeat;
+  box-shadow: var(--glass-shadow);
+}
+
+.hp-banner-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hp-avatar {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  background: rgba(3, 24, 44, 0.85);
+  border: 2.5px solid var(--gold);
+  box-shadow: 0 0 16px rgba(244, 180, 63, 0.4);
+}
+
+.hp-greeting {
+  flex: 1;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hp-time-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  background: rgba(3, 24, 44, 0.75);
+  border: 1.5px solid rgba(110, 170, 225, 0.45);
+}
+
+.hp-time-pill svg {
+  color: var(--gold);
+}
+
+.hp-date {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+}
+
+.hp-date svg {
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+/* ---- quick tiles ---- */
+.hp-tiles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.hp-tile {
+  min-height: 98px;
+  padding: 10px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 22px;
+  background: var(--glass-bg);
+  border: 1px solid var(--card-border);
+  box-shadow:
+    var(--glass-shadow),
+    inset 0 -2px 0 rgba(244, 180, 63, 0.75);
+  color: var(--text);
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.hp-tile-icon {
+  display: flex;
+  color: var(--gold);
+}
+
+.hp-plus {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #fdd46e, #e39a27);
+  color: var(--gold-dark);
+}
+
+.hp-tile-label {
+  font-size: 12.5px;
+  font-weight: 700;
+  line-height: 1.15;
+  text-align: center;
+}
+
+/* ---- generic card ---- */
+.hp-card {
+  position: relative;
+  padding: 16px;
+  border-radius: 26px;
+  background: var(--glass-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--glass-shadow);
+  color: var(--text);
+  font-family: inherit;
+  text-align: left;
+  width: 100%;
+}
+
+.hp-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.hp-card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.hp-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ---- tasks ---- */
+.hp-task-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.hp-task {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  background: none;
+  border: none;
+  border-top: 1px solid rgba(110, 170, 225, 0.18);
+  color: var(--text);
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.hp-task-bar {
+  width: 4px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 2px;
+}
+
+.hp-task-time {
+  min-width: 62px;
+  padding: 6px 0;
+  border-radius: 999px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 700;
+  background: rgba(3, 24, 44, 0.8);
+  border: 1px solid rgba(110, 170, 225, 0.3);
+}
+
+.hp-task-title {
+  flex: 1;
+  min-width: 0;
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hp-task-status {
+  flex-shrink: 0;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 600;
+  background: rgba(60, 90, 130, 0.45);
+}
+
+/* ---- prayer card ---- */
+.hp-prayer {
+  overflow: hidden;
+  cursor: pointer;
+  padding-bottom: 0;
+}
+
+.hp-prayer-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hp-sub {
+  margin-top: 2px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.hp-prayer-times {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+  margin: 14px 0 6px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(110, 170, 225, 0.18);
+  text-align: center;
+}
+
+.hp-prayer-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hp-prayer-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.hp-prayer-time {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.hp-prayer-img {
+  display: block;
+  width: calc(100% + 32px);
+  margin: 0 -16px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 55%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 55%);
+}
+
+/* ---- goals card ---- */
+.hp-goals-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.hp-goals-progress {
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.hp-goal-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+}
+
+.hp-goal {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 0;
+  background: none;
+  border: none;
+  border-top: 1px solid rgba(110, 170, 225, 0.18);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.hp-goal-check {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(180, 200, 225, 0.45);
+  color: #fff;
+}
+
+.hp-goal-check.done {
+  background: #22c55e;
+  border-color: #22c55e;
+}

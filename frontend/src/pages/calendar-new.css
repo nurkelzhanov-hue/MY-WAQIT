@@ -1,0 +1,26 @@
+.cal-tabs {
+  display: flex; gap: 6px; padding: 5px; border-radius: 999px;
+  background: var(--glass-bg); border: 1px solid var(--card-border);
+}
+.cal-tab {
+  flex: 1; padding: 10px 0; border-radius: 999px; border: 1.5px solid transparent;
+  background: none; color: var(--text); font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
+}
+.cal-tab.active {
+  color: var(--gold); border-color: rgba(244, 180, 63, 0.85);
+  background: radial-gradient(90% 90% at 50% 25%, rgba(244, 180, 63, 0.28), rgba(244, 180, 63, 0.04) 70%);
+  box-shadow: 0 0 16px rgba(244, 180, 63, 0.3);
+}
+.week-strip { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+.week-day {
+  position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 8px 0 10px; border-radius: 14px; background: none; border: 1px solid transparent;
+  color: var(--text); font-family: inherit; cursor: pointer;
+}
+.week-name { font-size: 11px; color: var(--muted); }
+.week-num { font-size: 16px; font-weight: 700; }
+.week-day.today { border-color: var(--gold); }
+.week-day.selected { background: var(--gold); color: var(--gold-dark); }
+.week-day.selected .week-name { color: var(--gold-dark); }
+.day-dot.static { position: static; }
+.week-day.selected .day-dot { background: var(--gold-dark); }

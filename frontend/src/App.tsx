@@ -10,9 +10,12 @@ import RemindersPage from './pages/RemindersPage'
 import ProfilePage from './pages/ProfilePage'
 import NewTaskPage from './pages/NewTaskPage'
 import PrayerPage from './pages/PrayerPage'
+import TasksProvider from './data/TasksProvider'
+import './styles/theme.css'
 
 export default function App() {
   return (
+    <TasksProvider>
     <Routes>
       <Route path="welcome" element={<WelcomePage />} />
       <Route path="language" element={<LanguagePage />} />
@@ -29,5 +32,6 @@ export default function App() {
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
+    </TasksProvider>
   )
 }

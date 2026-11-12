@@ -29,6 +29,11 @@ export const kaa: Strings = {
     todayTasks: 'Búgingi rejeler',
     viewAll: 'Bárin kóriw',
     reminderBefore: (minutes) => `${minutes} minut aldın eskertiw`,
+    appSubtitle: 'AI waqıt járdemshisi',
+    planned: 'Rejelestirilgen',
+    goalsTitle: 'Kúnlik maqsetler',
+    goalsProgress: (done, total) => `${done} / ${total} orınlandı`,
+    goals: ['Erteńgi rejeni dúziw', 'Sabaqtı tayarlaw', 'Sportqa barıw'],
   },
   prayer: {
     title: 'Namaz waqıtları',
@@ -69,6 +74,8 @@ export const kaa: Strings = {
     save: 'Saqla',
     titleRequired: 'Reje atın kiritiń',
     back: 'Artqa',
+    category: 'Kategoriya',
+    categories: { personal: 'Jeke', work: 'Jumıs', study: 'Oqıw', sport: 'Sport', other: 'Basqa' },
   },
   ai: {
     title: 'AI járdemshisi',
@@ -139,6 +146,10 @@ export const kaa: Strings = {
   weekdaysShort: ['Dú', 'Si', 'Sár', 'Bé', 'Ju', 'Sen', 'Ek'],
   calendar: {
     noTasks: 'Bul kúnde reje joq',
+    month: 'Aylıq',
+    week: 'Háptelik',
+    day: 'Kúnlik',
+    done: 'Orınlandı',
   },
-  demoTasks: ['Jeke ushırasıw', 'Sabaq oqıw', 'Sport'],
+  demoTasks: ['Jeke ushırasıw', 'Onlayn sabaq', 'Sport (jattıǵıw)'],
 }

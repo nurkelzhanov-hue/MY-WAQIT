@@ -29,6 +29,11 @@ export const uz: Strings = {
     todayTasks: 'Bugungi rejalar',
     viewAll: 'Barchasi',
     reminderBefore: (minutes) => `${minutes} daqiqa oldin eslatma`,
+    appSubtitle: 'AI vaqt yordamchisi',
+    planned: 'Rejalashtirilgan',
+    goalsTitle: 'Kunlik maqsadlar',
+    goalsProgress: (done, total) => `${done} / ${total} bajarildi`,
+    goals: ['Ertangi rejani tuzish', 'Darsga tayyorlanish', 'Sportga borish'],
   },
   prayer: {
     title: 'Namoz vaqtlari',
@@ -69,6 +74,8 @@ export const uz: Strings = {
     save: 'Saqlash',
     titleRequired: 'Reja nomini kiriting',
     back: 'Orqaga',
+    category: 'Kategoriya',
+    categories: { personal: 'Shaxsiy', work: 'Ish', study: "O'qish", sport: 'Sport', other: 'Boshqa' },
   },
   ai: {
     title: 'AI yordamchi',
@@ -139,6 +146,10 @@ export const uz: Strings = {
   weekdaysShort: ['Du', 'Se', 'Ch', 'Pa', 'Ju', 'Sh', 'Ya'],
   calendar: {
     noTasks: "Bu kunda reja yo'q",
+    month: 'Oylik',
+    week: 'Haftalik',
+    day: 'Kunlik',
+    done: 'Bajarildi',
   },
-  demoTasks: ['Shaxsiy uchrashuv', 'Darsga tayyorlanish', 'Sport'],
+  demoTasks: ['Shaxsiy uchrashuv', 'Onlayn dars', 'Sport (mashg\'ulot)'],
 }
