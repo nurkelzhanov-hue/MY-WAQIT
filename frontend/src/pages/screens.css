@@ -184,9 +184,3 @@
 .skyline-lang {
   bottom: 100px;
 }
-/* keep text above the skyline art on short/narrow screens (Telegram window) */
-.welcome-main { z-index: 2; }
-.skyline { z-index: 0; opacity: 0.85; }
-.tagline { position: relative; z-index: 2; text-shadow: 0 2px 10px rgba(0, 11, 25, 0.9); }
-.screen-footer { z-index: 2; }
-.lang-list { z-index: 2; }

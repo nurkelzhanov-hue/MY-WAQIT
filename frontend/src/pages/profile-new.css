@@ -1,0 +1,40 @@
+.pf-hero {
+  position: relative; display: flex; align-items: center; gap: 16px; overflow: hidden;
+  padding: 18px 16px; border-radius: 26px; min-height: 150px;
+  background: linear-gradient(120deg, #3a2a4a 0%, #14284d 55%, #04192d 100%);
+  border: 1px solid var(--card-border); box-shadow: var(--glass-shadow);
+}
+.pf-hero-art {
+  position: absolute; right: 0; top: 0; height: 100%; width: 70%; object-fit: cover; opacity: 0.75;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 55%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 55%);
+}
+.pf-avatar, .pf-who { position: relative; z-index: 1; }
+.pf-avatar {
+  width: 84px; height: 84px; flex-shrink: 0; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: radial-gradient(circle at 50% 30%, #1a2f55, #04192d);
+  border: 3px solid var(--gold); color: var(--gold);
+  box-shadow: 0 0 22px rgba(244, 180, 63, 0.4);
+}
+.pf-name { margin: 0; font-size: 22px; font-weight: 800; overflow-wrap: anywhere; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); }
+.pf-role { margin: 2px 0 8px; font-size: 14px; color: #cbd5e1; }
+.pf-plan {
+  display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px;
+  border: 1.5px solid var(--gold); color: var(--gold); font-size: 13px; font-weight: 800;
+  background: rgba(244, 180, 63, 0.12);
+}
+.pf-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); padding: 14px 4px; border-radius: 24px;
+  background: var(--glass-bg); border: 1px solid var(--card-border); box-shadow: var(--glass-shadow);
+}
+.pf-stat { display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; padding: 0 4px; }
+.pf-stat + .pf-stat { border-left: 1px solid var(--card-border); }
+.pf-stat-num { font-size: 26px; font-weight: 800; }
+.pf-stat-label { font-size: 12px; color: var(--muted); line-height: 1.2; }
+.profile-row { padding: 16px; }
+.profile-row-icon { color: var(--gold); }
+.profile-row-text { flex: 1; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.profile-row-sub { font-size: 12px; color: var(--muted); }
+.profile-row-badge { padding: 4px 12px; border-radius: 999px; background: #1f5a1f; border: 1px solid #4ade80; color: #bbf7d0; font-size: 12px; font-weight: 700; }
+.profile-row.danger .profile-row-icon { color: #f87171; }

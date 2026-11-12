@@ -99,7 +99,27 @@ export type Strings = {
     dailySummary: string
     prayerAtTime: string
   }
+  tariff: {
+    title: string
+    current: string
+    until: string
+    soon: string
+    proIntro: string
+    currency: string
+    demoNote: string
+    resetDemo: string
+    months: (m: number) => string
+    freeFeatures: string[]
+  }
   profile: {
+    subtitle: string
+    roleUser: string
+    statDone: string
+    statRate: string
+    statStreak: string
+    subscription: string
+    subscriptionSub: string
+    remindersSub: string
     guestName: string
     personalInfo: string
     settings: string

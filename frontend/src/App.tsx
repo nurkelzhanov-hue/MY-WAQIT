@@ -10,6 +10,7 @@ import RemindersPage from './pages/RemindersPage'
 import ProfilePage from './pages/ProfilePage'
 import NewTaskPage from './pages/NewTaskPage'
 import PrayerPage from './pages/PrayerPage'
+import TariffPage from './pages/TariffPage'
 import TasksProvider from './data/TasksProvider'
 import './styles/theme.css'
 
@@ -29,6 +30,7 @@ export default function App() {
         <Route path="reminders" element={<RemindersPage />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="prayer" element={<PrayerPage />} />
+        <Route path="tariff" element={<TariffPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>

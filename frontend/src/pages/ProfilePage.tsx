@@ -1,62 +1,108 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Clock, Globe, LogOut, MapPin, Settings, Trash2, User } from 'lucide-react'
+import { Bell, CalendarCheck, Crown, Flame, Globe, LogOut, Target, Trash2, User } from 'lucide-react'
 import { useLang } from '../hooks/useLang'
+import { useNow } from '../hooks/useNow'
+import { useTasks } from '../hooks/useTasks'
 import { LANGUAGE_NAMES } from '../i18n'
 import { DEFAULT_TIMEZONE } from '../utils/config'
+import { getTelegramUser } from '../utils/telegramUser'
+import { computeStats } from '../data/stats'
+import { loadDemoSub } from '../data/subscription'
+import AppHeader from '../components/AppHeader'
 import ProfileRow from '../components/profile/ProfileRow'
 import ConfirmDialog from '../components/ui/ConfirmDialog'
 import './profile.css'
+import './profile-new.css'
 
 export default function ProfilePage() {
   const { t, lang, resetLang } = useLang()
   const navigate = useNavigate()
+  const now = useNow(DEFAULT_TIMEZONE)
+  const { tasks, tasksOn } = useTasks()
   const [showDelete, setShowDelete] = useState(false)
 
-  const locationShort = t.prayer.location.split(',')[0]
+  const today = { year: now.year, month: now.month, day: now.day }
+  const stats = computeStats(tasks, today, tasksOn(today))
+  const isPro = loadDemoSub() !== null
+  const tg = getTelegramUser()
+  const displayName = tg ? [tg.firstName, tg.lastName].filter(Boolean).join(' ') || t.profile.guestName : t.profile.guestName
 
-  // For now this clears only what is stored in this browser (the chosen language).
+  // For now this clears only what is stored in this browser (language and tasks).
   // Deleting server-side data is connected together with the database.
   const handleDelete = () => {
     setShowDelete(false)
+    try {
+      localStorage.removeItem('waqit_tasks_v1')
+    } catch {
+      // ignore
+    }
     resetLang()
-    navigate('/welcome', { replace: true })
+    window.location.assign('/welcome')
   }
 
   return (
     <section className="profile-page">
-      <div className="user-card">
-        <span className="user-avatar">
-          <User size={30} />
+      <AppHeader subtitle={t.profile.subtitle} />
+
+      <div className="pf-hero">
+        <img className="pf-hero-art" src="/img/profile-banner.webp" alt="" />
+        <span className="pf-avatar">
+          <User size={44} />
         </span>
-        <div className="user-info">
-          <p className="user-name">{t.profile.guestName}</p>
-          <p className="user-username">@username</p>
+        <div className="pf-who">
+          <p className="pf-name">{displayName}</p>
+          <p className="pf-role">{tg?.username ? `@${tg.username}` : t.profile.roleUser}</p>
+          <span className="pf-plan">
+            <Crown size={15} /> {isPro ? 'PRO' : 'FREE'}
+          </span>
+        </div>
+      </div>
+
+      <div className="pf-stats">
+        <div className="pf-stat">
+          <CalendarCheck size={26} className="gold" />
+          <span className="pf-stat-num">{stats.totalDone}</span>
+          <span className="pf-stat-label">{t.profile.statDone}</span>
+        </div>
+        <div className="pf-stat">
+          <Target size={26} className="gold" />
+          <span className="pf-stat-num">{stats.todayRate}%</span>
+          <span className="pf-stat-label">{t.profile.statRate}</span>
+        </div>
+        <div className="pf-stat">
+          <Flame size={26} className="gold" />
+          <span className="pf-stat-num">{stats.streak}</span>
+          <span className="pf-stat-label">{t.profile.statStreak}</span>
         </div>
       </div>
 
       <div className="profile-list">
-        <ProfileRow icon={<User size={18} />} label={t.profile.personalInfo} />
         <ProfileRow
-          icon={<Settings size={18} />}
+          icon={<Crown size={24} />}
+          label={t.profile.subscription}
+          sub={t.profile.subscriptionSub}
+          onClick={() => navigate('/tariff')}
+        />
+        <ProfileRow
+          icon={<Bell size={24} />}
           label={t.profile.settings}
+          sub={t.profile.remindersSub}
           onClick={() => navigate('/reminders')}
         />
         <ProfileRow
-          icon={<Globe size={18} />}
+          icon={<Globe size={24} />}
           label={t.profile.language}
           value={lang ? LANGUAGE_NAMES[lang] : ''}
           onClick={() => navigate('/language')}
         />
-        <ProfileRow icon={<MapPin size={18} />} label={t.profile.location} value={locationShort} />
-        <ProfileRow icon={<Clock size={18} />} label={t.profile.timezone} value={DEFAULT_TIMEZONE} />
         <ProfileRow
-          icon={<Trash2 size={18} />}
+          icon={<Trash2 size={24} />}
           label={t.profile.deleteData}
           onClick={() => setShowDelete(true)}
         />
         <ProfileRow
-          icon={<LogOut size={18} />}
+          icon={<LogOut size={24} />}
           label={t.profile.logout}
           danger
           showChevron={false}
