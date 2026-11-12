@@ -16,7 +16,7 @@ import { DEFAULT_TIMEZONE } from '../utils/config'
 import AppHeader from '../components/AppHeader'
 import Switch from '../components/ui/Switch'
 import { usePrayerTimes } from '../hooks/usePrayerTimes'
-import { prayerStrings } from '../i18n/prayerStrings'
+import { prayerNote } from '../i18n/prayerStrings'
 import './prayer.css'
 import { asset } from '../utils/assets'
 
@@ -27,7 +27,6 @@ export default function PrayerPage() {
   const navigate = useNavigate()
   const now = useNow(DEFAULT_TIMEZONE)
   const prayer = usePrayerTimes({ year: now.year, month: now.month, day: now.day })
-  const ps = prayerStrings[lang ?? 'kaa']
   const times = prayer.times
   const [remindersOn, setRemindersOn] = useState(true)
   const [rowOn, setRowOn] = useState<boolean[]>([true, true, true, true, true])
@@ -67,7 +66,7 @@ export default function PrayerPage() {
         })}
       </div>
 
-      <p className="muted prayer-note">{prayer.status === 'error' ? ps.error : ps.source}</p>
+      <p className="muted prayer-note">{prayerNote[lang ?? 'kaa']}</p>
 
       <div className="prayer-settings">
         <div className="settings-row">
