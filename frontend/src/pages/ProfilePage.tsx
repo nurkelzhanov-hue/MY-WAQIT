@@ -60,7 +60,7 @@ export default function ProfilePage() {
         </div>
       </div>
 
-      <div className="pf-stats">
+      <div className="pf-stats" role="button" tabIndex={0} onClick={() => navigate('/stats')} onKeyDown={(e) => e.key === 'Enter' && navigate('/stats')}>
         <div className="pf-stat">
           <CalendarCheck size={26} className="gold" />
           <span className="pf-stat-num">{stats.totalDone}</span>

@@ -11,6 +11,7 @@ import ProfilePage from './pages/ProfilePage'
 import NewTaskPage from './pages/NewTaskPage'
 import PrayerPage from './pages/PrayerPage'
 import TariffPage from './pages/TariffPage'
+import StatsPage from './pages/StatsPage'
 import TasksProvider from './data/TasksProvider'
 import './styles/theme.css'
 
@@ -31,6 +32,7 @@ export default function App() {
         <Route path="profile" element={<ProfilePage />} />
         <Route path="prayer" element={<PrayerPage />} />
         <Route path="tariff" element={<TariffPage />} />
+        <Route path="stats" element={<StatsPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
