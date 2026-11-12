@@ -33,6 +33,10 @@ export const kaa: Strings = {
   prayer: {
     title: 'Namaz waqıtları',
     names: ['Tań', 'Pesin', 'Ásir', 'Sham', 'Qúptan'],
+    location: "No'kis, Qaraqalpaqstan",
+    remindersLabel: 'Namaz eskertiwleri',
+    settings: 'Sazlamalar',
+    pendingNote: 'Namaz waqıtları keyingi basqıshta isenimli API arqalı alınadı.',
   },
   newTask: {
     taskName: 'Reje atı',

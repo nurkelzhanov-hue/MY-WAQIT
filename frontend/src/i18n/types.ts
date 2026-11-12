@@ -31,6 +31,10 @@ export type Strings = {
   prayer: {
     title: string
     names: string[] // Fajr, Dhuhr, Asr, Maghrib, Isha
+    location: string
+    remindersLabel: string
+    settings: string
+    pendingNote: string
   }
   newTask: {
     taskName: string

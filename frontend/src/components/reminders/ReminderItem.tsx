@@ -1,4 +1,5 @@
 import { Bell, Check } from 'lucide-react'
+import Switch from '../ui/Switch'
 
 type Props = {
   title: string
@@ -23,15 +24,7 @@ export default function ReminderItem({ title, subtitle, control, on, onToggle }:
           {on && <Check size={14} />}
         </button>
       ) : (
-        <button
-          role="switch"
-          aria-checked={on}
-          className={'switch' + (on ? ' on' : '')}
-          onClick={onToggle}
-          aria-label={title}
-        >
-          <span className="switch-knob" />
-        </button>
+        <Switch on={on} onToggle={onToggle} label={title} />
       )}
     </div>
   )

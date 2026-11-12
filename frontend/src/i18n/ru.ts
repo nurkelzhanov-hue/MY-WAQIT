@@ -33,6 +33,10 @@ export const ru: Strings = {
   prayer: {
     title: 'Время намаза',
     names: ['Фаджр', 'Зухр', 'Аср', 'Магриб', 'Иша'],
+    location: 'Нукус, Каракалпакстан',
+    remindersLabel: 'Напоминания о намазе',
+    settings: 'Настройки',
+    pendingNote: 'Время намаза будет получено через надёжный API на следующем этапе.',
   },
   newTask: {
     taskName: 'Название плана',

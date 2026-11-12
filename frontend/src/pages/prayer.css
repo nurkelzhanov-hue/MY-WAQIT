@@ -1,0 +1,124 @@
+.prayer-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.prayer-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.prayer-header-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold);
+  color: var(--gold-dark);
+}
+
+.prayer-title {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.location-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  border-radius: var(--radius);
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  color: var(--gold);
+}
+
+.location-name {
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.prayer-list {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius);
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  overflow: hidden;
+}
+
+.prayer-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.prayer-row:last-child {
+  border-bottom: none;
+}
+
+.prayer-icon {
+  color: var(--gold);
+  display: flex;
+}
+
+.prayer-name {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.prayer-time {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--blue);
+  font-variant-numeric: tabular-nums;
+}
+
+.prayer-note {
+  text-align: center;
+}
+
+.prayer-settings {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius);
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  overflow: hidden;
+}
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: none;
+  border: none;
+  color: var(--text);
+  width: 100%;
+  text-align: left;
+}
+
+.settings-row + .settings-row {
+  border-top: 1px solid var(--card-border);
+}
+
+.settings-link {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 15px;
+}
+
+.settings-label {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 600;
+}

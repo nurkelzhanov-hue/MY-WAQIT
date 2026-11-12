@@ -33,6 +33,10 @@ export const uz: Strings = {
   prayer: {
     title: 'Namoz vaqtlari',
     names: ['Bomdod', 'Peshin', 'Asr', 'Shom', 'Xufton'],
+    location: "Nukus, Qoraqalpog'iston",
+    remindersLabel: 'Namoz eslatmalari',
+    settings: 'Sozlamalar',
+    pendingNote: 'Namoz vaqtlari keyingi bosqichda ishonchli API orqali olinadi.',
   },
   newTask: {
     taskName: 'Reja nomi',
