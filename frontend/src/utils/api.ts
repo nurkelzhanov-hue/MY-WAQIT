@@ -1,7 +1,7 @@
 // Calls to the MY WAQIT backend. Every request is authorised with the Telegram initData.
 const TG_KEY = 'waqit_tg_data'
 
-export const API_URL: string = String(import.meta.env.VITE_API_URL ?? '').replace(/\/$/, '')
+export const API_URL: string = String(import.meta.env.VITE_API_URL || 'https://my-waqit-api.onrender.com' || '').replace(/\/$/, '')
 
 type TelegramWindow = Window & { Telegram?: { WebApp?: { initData?: string } } }
 
@@ -48,5 +48,6 @@ export async function apiFetch<T>(path: string, init: RequestInit = {}): Promise
   if (!res.ok) throw new ApiError(res.status)
   return (await res.json()) as T
 }
+
 
 
