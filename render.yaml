@@ -1,0 +1,20 @@
+# Render Blueprint: backend API (free web service).
+# Secrets are NOT stored here; they are entered once in the Render dashboard.
+services:
+  - type: web
+    name: my-waqit-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: DEFAULT_TIMEZONE
+        value: Asia/Tashkent
