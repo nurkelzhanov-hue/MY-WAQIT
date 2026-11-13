@@ -111,6 +111,8 @@ export default function ProfilePage() {
         />
       </div>
 
+      <p style={{textAlign:'center',fontSize:12,opacity:.5}} onClick={() => navigate('/debug')}>diagnostika</p>
+
       {showDelete && (
         <ConfirmDialog
           text={t.profile.deleteQuestion}
