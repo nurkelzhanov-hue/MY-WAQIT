@@ -27,8 +27,10 @@ export function isSyncAvailable(): boolean {
 }
 
 export class ApiError extends Error {
-  constructor(public status: number) {
-    super(`API error ${status}`)
+  status: number
+  constructor(status: number) {
+    super(API error ${status})
+    this.status = status
   }
 }
 
@@ -46,3 +48,4 @@ export async function apiFetch<T>(path: string, init: RequestInit = {}): Promise
   if (!res.ok) throw new ApiError(res.status)
   return (await res.json()) as T
 }
+
